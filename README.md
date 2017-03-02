@@ -1,5 +1,16 @@
 # Adobe After Effects Expression Cheat Sheet
 
+## Table Of Contents
+ - [Globals](#globals)
+  - [Contextual](#contextual)
+   - [Objects](#objects)
+   - [Project](#project)
+  - [Static](#static)
+   - [Functions](#functions)
+    - [Time Conversion](#time-conversion)
+    - [Locating Project Elements](#locating-project-elements)
+
+
 ## Globals
 
 ### Contextual
@@ -33,7 +44,7 @@ Function | Description | Example
 `timeToNTSCTimecode(t, ntscDropFrame, isDuration)` | Converts timecode to NTSC timecode with or without drop frame. | |
 `timeToTimecode(t, timecodeBase, isDuration)` | Converts timecode to other timecode using the given timebase. | |
 
-#### Location Project Elements
+#### Locating Project Elements
 
 Function | Description | Example
 -------- | ----------- | -------
