@@ -1,2 +1,61 @@
-# ae-expression-cheat-sheet
-Adobe After Effects Expression Cheat Sheet
+# Adobe After Effects Expression Cheat Sheet
+
+## Globals
+
+### Contextual
+
+#### Objects
+Object | Description | Example
+------ | ----------- | -------
+`thisComp` | Current composition | ```javascript
+thisComp;
+```
+`thisLayer` | Current layer | ```javascript
+thisLayer.transform.scale[1];
+```
+`thisProperty` | Current property the expression is applied upon. | ```javascript
+thisProperty[1];
+```
+`time` | Current timecode at cursor position in seconds. | ```javascript
+"Seconds: " + time;
+```
+`value` | Current value associated to the current property. | ```javascript
+value + "_TEST";
+```
+
+### Project
+Object | Description | Example
+------ | ----------- | -------
+`colorDepth` | Project color depth in bits per pixel. | ```javascript
+colorDepth;
+```
+
+## Static
+
+### Functions
+
+#### Time Conversion
+
+Function | Description | Example
+-------- | ----------- | -------
+`framesToTime(frames, fps)` | Convert frames to timecode in seconds. | ```javascript
+ framesToTime(50, 1.0 / thisComp.frameDuration);
+ ```
+`timeToCurrentFormat(t, fps, isDuration)` | Converts timecode to the current Project Settings display format. | |
+`timeToFeetAndFrames(t, fps, framesPerFoot, isDuration)` | Converts timecode to feet and frames format. | |
+`timeToFrames(t, fps, isDuration)` | Converts timecode to frames. | |
+`timeToNTSCTimecode(t, ntscDropFrame, isDuration)` | Converts timecode to NTSC timecode with or without drop frame. | |
+`timeToTimecode(t, timecodeBase, isDuration)` | Converts timecode to other timecode using the given timebase. | |
+
+#### Location Project Elements
+
+Function | Description | Example
+-------- | ----------- | -------
+`comp(name)` | Find the open composition with the given name. | ```javascript
+comp("Comp 1");
+```
+`footage(name)` | Find the project footage with the given name. | ```javascript
+footage("RedHarring.png");
+```
+
+Work In Progress...
