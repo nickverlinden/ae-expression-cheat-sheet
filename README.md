@@ -2,13 +2,13 @@
 
 ## Table Of Contents
  - [Globals](#globals)
-  - [Contextual](#contextual)
-   - [Objects](#objects)
-   - [Project](#project)
-  - [Static](#static)
-   - [Functions](#functions)
-    - [Time Conversion](#time-conversion)
-    - [Locating Project Elements](#locating-project-elements)
+   - [Contextual](#contextual)
+     - [Objects](#objects)
+     - [Project](#project)
+   - [Static](#static)
+     - [Functions](#functions)
+      - [Time Conversion](#time-conversion)
+      - [Locating Project Elements](#locating-project-elements)
 
 
 ## Globals
