@@ -13,7 +13,7 @@
 
 ## Globals
 
-### Contextual
+### Contextual Variables
 
 #### Objects
 Object | Description | Example
@@ -29,7 +29,12 @@ Object | Description | Example
 ------ | ----------- | -------
 `colorDepth` | Project color depth in bits per pixel. | ```colorDepth;```
 
-## Static
+### Composition Object Properties & Functions
+Function | Description 
+-------- | ----------- 
+`layer(index \|\| number)` | Returns a Layer, Light or Camera object.
+`layer(layer, relIndex)` | Returns the object with a relative index to the given layer.
+
 
 ### Functions
 
