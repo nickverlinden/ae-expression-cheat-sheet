@@ -70,9 +70,11 @@ Function | Description | Example
 * Set the shape to the size and position of the text.
 
 **Solution:**
+
 Let's say you have a shape layer with a rectangle shape.
 
 * Add following expression to the rectangle path's size property
+
 ```javascript
 var textLayer = thisComp.layer("Text Layer 1");
 var textRect = textLayer.sourceRectAtTime(time - textLayer.inPoint, true);
@@ -84,6 +86,7 @@ This will set the size of the rectangle to the size of the text. When there
 are multiple lines, it takes the full size of all lines.
 
 * Add following expression to the rectangle path's position property
+
 ```javascript
 var rectPath = content("Rectangle 1").content("Rectangle Path 1");
 var x = rectPath.size[0];
@@ -92,16 +95,19 @@ var y = rectPath.size[1];
 // set position of rectangle path to text rectangle's width and height
 [x/2, -(y/2)]
 ```
-This sets the position of the rectangle's path to the position of the text.
-Text layers always have an anchor point on the bottom left of the first line of text.
+This sets the position of the rectangle's path to bottom left. Text Layers
+always have their anchor points on the bottom left of the first line of text.
 
 * Add following expression to the rectangle layer's Transform.Position property
+
 ```javascript
 var textLayer = thisComp.layer("Text Layer 1");
 var textRect = textLayer.sourceRectAtTime(time - textLayer.inPoint, true);
 [ textLayer.transform.position[0] + textRect.left,
   textLayer.transform.position[1] + textRect.top + textRect.height ]
 ```
+This sets the position of the rectangle's layer to the position of the
+text.
 
 **Problems:**
 * The text has multiple lines
