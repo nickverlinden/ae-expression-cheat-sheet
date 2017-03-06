@@ -95,8 +95,9 @@ var y = rectPath.size[1];
 // set position of rectangle path to text rectangle's width and height
 [x/2, -(y/2)]
 ```
-This sets the position of the rectangle's path to bottom left. Text Layers
+This sets the bottom left position of the rectangle's path to top left of the layer. Text Layers
 always have their anchor points on the bottom left of the first line of text.
+This will make the calculation more easy to do.
 
 * Add following expression to the rectangle layer's Transform.Position property
 
@@ -107,7 +108,9 @@ var textRect = textLayer.sourceRectAtTime(time - textLayer.inPoint, true);
   textLayer.transform.position[1] + textRect.top + textRect.height ]
 ```
 This sets the position of the rectangle's layer to the position of the
-text.
+text. The reason for adding the rectangle size, is because the font rendering
+can cause the first letter to be a few pixels off the position. Adding the
+rectangle coordinates will compensate for that.
 
 **Problems:**
 * The text has multiple lines
