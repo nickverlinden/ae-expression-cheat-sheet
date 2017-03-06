@@ -113,8 +113,6 @@ can cause the first letter to be a few pixels off the position. Adding the
 rectangle coordinates will compensate for that.
 
 **Problems:**
-* The text has multiple lines
+* The text has multiple lines, and you want a rectangle for each line instead of
+  one covering all the lines.
 * The text has letters that extend the rectangle on the bottom (like the letter q)
-
-
-Work In Progress...
