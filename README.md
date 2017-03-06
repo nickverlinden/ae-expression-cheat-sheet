@@ -56,4 +56,56 @@ Function | Description | Example
 `comp(name)` | Find the open composition with the given name. | ```comp("Comp 1");```
 `footage(name)` | Find the project footage with the given name. | ```footage("RedHarring.png");```
 
+### Tips & Tricks
+
+#### Set Size And Position Of Shape To Text
+
+**You have:**
+
+* Text Layer
+* Shape Layer
+
+**You want to:**
+
+* Set the shape to the size and position of the text.
+
+**Solution:**
+Let's say you have a shape layer with a rectangle shape.
+
+* Add following expression to the rectangle path's size property
+```javascript
+var textLayer = thisComp.layer("Text Layer 1");
+var textRect = textLayer.sourceRectAtTime(time - textLayer.inPoint, true);
+
+// set size of rectangle path to text rectangle's width and height
+[textRect.width, textRect.height];
+```
+This will set the size of the rectangle to the size of the text. When there
+are multiple lines, it takes the full size of all lines.
+
+* Add following expression to the rectangle path's position property
+```javascript
+var rectPath = content("Rectangle 1").content("Rectangle Path 1");
+var x = rectPath.size[0];
+var y = rectPath.size[1];
+
+// set position of rectangle path to text rectangle's width and height
+[x/2, -(y/2)]
+```
+This sets the position of the rectangle's path to the position of the text.
+Text layers always have an anchor point on the bottom left of the first line of text.
+
+* Add following expression to the rectangle layer's Transform.Position property
+```javascript
+var textLayer = thisComp.layer("Text Layer 1");
+var textRect = textLayer.sourceRectAtTime(time - textLayer.inPoint, true);
+[ textLayer.transform.position[0] + textRect.left,
+  textLayer.transform.position[1] + textRect.top + textRect.height ]
+```
+
+**Problems:**
+* The text has multiple lines
+* The text has letters that extend the rectangle on the bottom (like the letter q)
+
+
 Work In Progress...
