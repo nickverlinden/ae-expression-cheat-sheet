@@ -93,7 +93,7 @@ var x = rectPath.size[0];
 var y = rectPath.size[1];
 
 // set position of rectangle path to text rectangle's width and height
-[x/2, -(y/2)]
+[x/2, -(y/2)];
 ```
 This sets the bottom left position of the rectangle's path to top left of the layer. Text Layers
 always have their anchor points on the bottom left of the first line of text.
@@ -105,7 +105,7 @@ This will make the calculation more easy to do.
 var textLayer = thisComp.layer("Text Layer 1");
 var textRect = textLayer.sourceRectAtTime(time - textLayer.inPoint, true);
 [ textLayer.transform.position[0] + textRect.left,
-  textLayer.transform.position[1] + textRect.top + textRect.height ]
+  textLayer.transform.position[1] + textRect.top + textRect.height ];
 ```
 This sets the position of the rectangle's layer to the position of the
 text. The reason for adding the rectangle size, is because the font rendering
