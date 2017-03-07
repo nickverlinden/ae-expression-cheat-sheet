@@ -73,44 +73,44 @@ Function | Description | Example
 
 Let's say you have a shape layer with a rectangle shape.
 
-* Add following expression to the rectangle path's size property
+1. Set the rectangle layer's parent to the text layer
+  This will make the positioning relative to the text layer's positioning.
 
-```javascript
-var textLayer = thisComp.layer("Text Layer 1");
-var textRect = textLayer.sourceRectAtTime(time - textLayer.inPoint, true);
+2. Add following expression to the rectangle path's size property
+  ```javascript
+  var textLayer = thisComp.layer("Text Layer 1");
+  var textRect = textLayer.sourceRectAtTime(time - textLayer.inPoint, true);
+  
+  // set size of rectangle path to text rectangle's width and height
+  [textRect.width, textRect.height];
+  ```
+  This will set the size of the rectangle to the size of the text. When there
+  are multiple lines, it takes the full size of all lines.
 
-// set size of rectangle path to text rectangle's width and height
-[textRect.width, textRect.height];
-```
-This will set the size of the rectangle to the size of the text. When there
-are multiple lines, it takes the full size of all lines.
+3. Add following expression to the rectangle path's position property
+  ```javascript
+  var rectPath = content("Rectangle 1").content("Rectangle Path 1");
+  var x = rectPath.size[0];
+  var y = rectPath.size[1];
+  
+  // set position of rectangle path to text rectangle's width and height
+  [x/2, -(y/2)];
+  ```
+  This sets the bottom left position of the rectangle's path to top left of the layer. Text Layers
+  always have their anchor points on the bottom left of the first line of text.
+  This will make the calculation more easy to do.
 
-* Add following expression to the rectangle path's position property
-
-```javascript
-var rectPath = content("Rectangle 1").content("Rectangle Path 1");
-var x = rectPath.size[0];
-var y = rectPath.size[1];
-
-// set position of rectangle path to text rectangle's width and height
-[x/2, -(y/2)];
-```
-This sets the bottom left position of the rectangle's path to top left of the layer. Text Layers
-always have their anchor points on the bottom left of the first line of text.
-This will make the calculation more easy to do.
-
-* Add following expression to the rectangle layer's Transform.Position property
-
-```javascript
-var textLayer = thisComp.layer("Text Layer 1");
-var textRect = textLayer.sourceRectAtTime(time - textLayer.inPoint, true);
-[ textLayer.transform.position[0] + textRect.left,
+4. Add following expression to the rectangle layer's Transform.Position property
+  ```javascript
+  var textLayer = thisComp.layer("Text Layer 1");
+  var textRect = textLayer.sourceRectAtTime(time - textLayer.inPoint, true);
+  [ textLayer.transform.position[0] + textRect.left,
   textLayer.transform.position[1] + textRect.top + textRect.height ];
-```
-This sets the position of the rectangle's layer to the position of the
-text. The reason for adding the rectangle size, is because the font rendering
-can cause the first letter to be a few pixels off the position. Adding the
-rectangle coordinates will compensate for that.
+  ```
+  This sets the position of the rectangle's layer to the position of the
+  text. The reason for adding the rectangle size, is because the font rendering
+  can cause the first letter to be a few pixels off the position. Adding the
+  rectangle coordinates will compensate for that.
 
 **Problems:**
 * The text has multiple lines, and you want a rectangle for each line instead of
