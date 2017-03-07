@@ -105,7 +105,7 @@ Let's say you have a shape layer with a rectangle shape.
   var textLayer = thisComp.layer("Text Layer 1");
   var textRect = textLayer.sourceRectAtTime(time - textLayer.inPoint, true);
   [ textLayer.transform.position[0] + textRect.left,
-  textLayer.transform.position[1] + textRect.top + textRect.height ];
+    textLayer.transform.position[1] + textRect.top + textRect.height ];
   ```
   This sets the position of the rectangle's layer to the position of the
   text. The reason for adding the rectangle size, is because the font rendering
