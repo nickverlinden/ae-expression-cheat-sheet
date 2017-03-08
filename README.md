@@ -142,3 +142,9 @@ Add horizontal jitter to the video so that it looks like 50 hz interlacing.
   ```javascript
   [transform.position[0], transform.position[1] + (timeToFrames(time) % 2)]
   ```
+  
+  Or even multiple it by half to get a very subtle shake.
+  
+  ```javascript
+  [transform.position[0], transform.position[1] + ((timeToFrames(time) % 2) * 0.5)]
+  ```
