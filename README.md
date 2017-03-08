@@ -116,3 +116,27 @@ Let's say you have a shape layer with a rectangle shape.
 * The text has multiple lines, and you want a rectangle for each line instead of
   one covering all the lines.
 * The text has letters that extend the rectangle on the bottom (like the letter q)
+
+#### Add Interlacing Jitter
+
+**You Have:**
+
+* Video Layer
+
+**You Want To:**
+
+Add horizontal jitter to the video so that it looks like 50 hz interlacing.
+
+**Solution:**
+
+1. Add following expression to the video layer's Transform.Position property
+  ```javascript
+  [transform.position[0], transform.position[1] + ((timeToFrames(time) % 2) * 2)]
+  ```
+  
+**Problems:**
+* The jitter is too heavy
+  You can solve this by removing the multiplication in the expression
+  ```javascript
+  [transform.position[0], transform.position[1] + (timeToFrames(time) % 2)]
+  ```
