@@ -130,6 +130,7 @@ Add horizontal jitter to the video so that it looks like 50 hz interlacing.
 **Solution:**
 
 1. Add following expression to the video layer's Transform.Position property
+  
   ```javascript
   [transform.position[0], transform.position[1] + ((timeToFrames(time) % 2) * 2)]
   ```
@@ -137,6 +138,7 @@ Add horizontal jitter to the video so that it looks like 50 hz interlacing.
 **Problems:**
 * The jitter is too heavy
   You can solve this by removing the multiplication in the expression
+  
   ```javascript
   [transform.position[0], transform.position[1] + (timeToFrames(time) % 2)]
   ```
