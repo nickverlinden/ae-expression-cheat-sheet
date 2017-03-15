@@ -148,3 +148,15 @@ Add horizontal jitter to the video so that it looks like 50 hz interlacing.
   ```javascript
   [transform.position[0], transform.position[1] + ((timeToFrames(time) % 2) * 0.5)]
   ```
+
+* The text needs to be vertically centered.
+  Add the following expression to the text layer's Transform.Position property
+  
+  ```javascript
+  S = thisLayer;
+  x =transform.position[0];
+  y =transform.position[1];
+  rect =S.sourceRectAtTime(time,false);
+  y_offset = rect.height/2;
+  [x,y-y_offset]
+  ```
